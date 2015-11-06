@@ -9,14 +9,14 @@ package main
 // much better.
 
 import (
-		"os"
-        "net/url"
-        "fmt"
-        "github.com/runner-mei/gowbem"
-		"strconv"
-		"errors"
-		"strings"
-		"net"
+	"errors"
+	"fmt"
+	"github.com/runner-mei/gowbem"
+	"net"
+	"net/url"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func getArrayUri(url_in, user, password string) *url.URL {
@@ -59,7 +59,7 @@ func HostAvailable(host string) {
 
 func GetRps(c *gowbem.ClientCIMXML) (gowbem.CIMInstanceWithName, string, error) {
 
-	name_spaces := [...]string {"interop", "root/interop", "root/PG_Interop"}
+	name_spaces := [...]string{"interop", "root/interop", "root/PG_Interop"}
 
 	for _, ns := range name_spaces {
 		instances, e := c.EnumerateInstances(ns, "CIM_RegisteredProfile",
@@ -70,7 +70,7 @@ func GetRps(c *gowbem.ClientCIMXML) (gowbem.CIMInstanceWithName, string, error) 
 			// until the library can handle this better.
 			if strings.Contains(e.Error(), "CIM_ERR_ACCESS_DENIED") {
 				Bail(2, "Incorrect credentials!")
-			} else if strings.Contains(e.Error(), "CIM_ERR_INVALID_NAMESPACE"){
+			} else if strings.Contains(e.Error(), "CIM_ERR_INVALID_NAMESPACE") {
 				// Expected error at times.
 				continue
 			} else {
