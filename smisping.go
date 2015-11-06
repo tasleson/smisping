@@ -5,7 +5,7 @@ package main
 // License: Apache License Version 2.0, see:
 // http://www.apache.org/licenses/LICENSE-2.0.html
 //
-// Note: My very first exposure to golang, so this is probably could be done
+// Note: My very first exposure to golang, so this probably could be done
 // much better.
 
 import (
