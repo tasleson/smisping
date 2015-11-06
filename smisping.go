@@ -107,7 +107,7 @@ func GetRps(c *gowbem.ClientCIMXML) (gowbem.CIMInstanceWithName, string, error) 
 		}
 	}
 
-	return nil, "", errors.New("Provider does not apprear to support interop or username/password incorrect")
+	return nil, "", errors.New("Provider does not appear to support interop or username/password incorrect")
 }
 
 func main() {
